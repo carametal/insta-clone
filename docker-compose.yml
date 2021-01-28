@@ -22,7 +22,8 @@ services:
 
   web:
     build: .
-    command: uwsgi --socket :8001 --module instaclone.wsgi
+    # command: uwsgi --socket :8001 --module instaclone.wsgi
+    command: python manage.py runserver 8001
     volumes:
       - .:/code
       - ./static:/static
