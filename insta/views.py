@@ -9,3 +9,6 @@ def index(request):
         'form': Trial()
     }
     return HttpResponse(template.render(context, request))
+
+def signin(request):
+    return render(request, 'insta/signin.html')
