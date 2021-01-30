@@ -4,11 +4,10 @@ from django.template import loader
 from insta.forms import Trial
 
 def index(request):
-    template = loader.get_template('insta/index.html')
     context = {
         'form': Trial()
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'insta/index.html', context)
 
 def signin(request):
     return render(request, 'insta/signin.html')
