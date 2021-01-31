@@ -1,0 +1,11 @@
+{% load bootstrap4 %}
+{% load static %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+<h1>It is home.html.</h1>
+<p>Login uesr is {{ user.username }}</p>
