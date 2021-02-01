@@ -8,7 +8,8 @@ from insta.forms import Trial
 
 def index(request):
     context = {
-        'form': Trial()
+        'form': Trial(),
+        'user': request.user
     }
     return render(request, 'insta/index.html', context)
 
@@ -25,9 +26,3 @@ def sesssion(request):
         return HttpResponseRedirect(reverse('home', args=(user.id,)))
 
     return HttpResponseRedirect(reverse('signin'))
-
-@login_required
-def home(request, user_id):
-    return render(request, 'insta/home.html', {
-        'user': request.user,
-    })

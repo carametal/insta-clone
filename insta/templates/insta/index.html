@@ -42,11 +42,13 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
+      {% if user is None %}
       <ul class="navbar-nav">
         <li class="navbar-item">
           <a class="nav-link" href="{% url 'signin' %}">Signin</a>
         </li>
       </ul>
+      {% endif %}
     </div>
   </nav>
 </header>
