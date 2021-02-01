@@ -42,16 +42,23 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
-      {% if user is None %}
-      <ul class="navbar-nav">
-        <li class="navbar-item">
-          <a class="nav-link" href="{% url 'signin' %}">Signin</a>
-        </li>
-      </ul>
+      {% if user.is_authenticated %}
+        <ul class="navbar-nav">
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'signout' %}">Sign out</a>
+          </li>
+        </ul>
+      {% else %}
+        <ul class="navbar-nav">
+          <li class="navbar-item">
+            <a class="nav-link" href="{% url 'signin' %}">Sign in</a>
+          </li>
+        </ul>
       {% endif %}
     </div>
   </nav>
 </header>
+
 
 <main>
 <section class="py-5 text-center container">
