@@ -33,12 +33,6 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
       </ul>
       {% if user.is_authenticated %}
         <ul class="navbar-nav">
@@ -53,10 +47,16 @@
         </ul>
       {% else %}
         <ul class="navbar-nav">
-          <li class="navbar-item">
+          <li class="navbar-item active">
             <a class="nav-link" href="{% url 'signin' %}">Sign in</a>
           </li>
         </ul>
+        <a
+          class="btn btn-outline-light d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3"
+          href="{% url 'signup' %}"
+        >
+          Sign up
+        </a>
       {% endif %}
     </div>
   </nav>
