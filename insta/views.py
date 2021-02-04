@@ -35,6 +35,7 @@ def session(request):
         login(request, user)
         return HttpResponseRedirect(reverse('index'))
 
+    messages.error(request, 'Incorrect username or password.')
     return HttpResponseRedirect(reverse('signin'))
 
 def session_signup(request):
@@ -42,6 +43,7 @@ def session_signup(request):
         input_password  = request.POST['password']
         input_confirm_password = request.POST['confirm_password']
         if input_password != input_confirm_password:
+            messages.error(request, 'Not match password and confirm password.')
             return HttpResponseRedirect(reverse('signup'))
         
         username = request.POST['username']
@@ -49,5 +51,6 @@ def session_signup(request):
         User.objects.create_user(username, email, input_confirm_password)
         return HttpResponseRedirect(reverse('index'))
     except:
+        messages.error(request, 'Username or email address is not available.')
         return HttpResponseRedirect(reverse('signup'))
 
