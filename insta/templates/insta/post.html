@@ -1,0 +1,24 @@
+
+{% extends 'insta/base.html' %}
+
+{% block content%}
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <form action="" method="post">
+        {%csrf_token%}
+        <div class="form-group">
+          <label for="chooseImage">画像</label>
+          <input type="file" class="form-control-file" id="chooseImage" name="image">
+        </div>
+        <div class="form-group">
+          <lable>内容</label>
+          <textarea class="form-control" id="inputContent" rows="5" name="content"></textarea>
+        </div>
+        <button>Post</button>
+      </from>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

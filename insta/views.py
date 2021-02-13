@@ -54,3 +54,6 @@ def session_signup(request):
         messages.error(request, 'Username or email address is not available.')
         return HttpResponseRedirect(reverse('signup'))
 
+def post(request):
+    return render(request, 'insta/post.html')
+
