@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.urls import reverse
 from insta.forms import Trial
+from insta.models import Post
 
 def index(request):
     context = {
@@ -55,5 +56,12 @@ def session_signup(request):
         return HttpResponseRedirect(reverse('signup'))
 
 def post(request):
+    if request.method == 'POST':
+        user_id = request.user
+        image = request.FILES['image']
+        caption = request.POST['caption']
+        post = Post(user_id=user_id, image=image, caption=caption)
+        post.save()
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'insta/post.html')
 
