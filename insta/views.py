@@ -13,7 +13,8 @@ def index(request):
     context = {
         'form': Trial(),
         'user': request.user,
-        'username': request.user.username
+        'username': request.user.username,
+        'posts': Post.objects.all(),
     }
     return render(request, 'insta/index.html', context)
 
@@ -64,4 +65,3 @@ def post(request):
         post.save()
         return HttpResponseRedirect(reverse('index'))
     return render(request, 'insta/post.html')
-
